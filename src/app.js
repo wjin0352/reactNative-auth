@@ -27,12 +27,16 @@ class App extends Component {
     });
   }
 
+  handleLogOut() {
+    firebase.auth().signOut();
+  }
+
   renderContent() {
     switch (this.state.loggedIn) {
       case true:
         return (
           <View style={{flexDirection: 'row'}}>
-            <Button>
+            <Button onPress={() => this.handleLogOut()}>
               Log Out
             </Button>
           </View>
